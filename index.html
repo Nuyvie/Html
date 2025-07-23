@@ -9,27 +9,46 @@
             margin-top: 100px;
             font-family: Arial, sans-serif;
             overflow: hidden; /* evita barra de rolagem ao botão fugir */
+            background-color: #fff;
         }
 
         button {
             font-size: 20px;
             padding: 10px 20px;
             margin: 20px;
+            z-index: 1;
+            position: relative;
         }
 
         #nao {
             position: absolute;
             transition: left 0.2s, top 0.2s;
         }
+
+        #imagemAmor {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            max-height: 90%;
+            z-index: 0;
+        }
     </style>
 </head>
 <body>
     <h1>Você quer namorar com o gordinho?</h1>
-    <button onclick="alert('Eu te amo ❤️')">Sim</button>
+
+    <button onclick="mostrarAmor()">Sim</button>
     <button id="nao">Não</button>
+
+    <img id="imagemAmor" src="https://cdn.discordapp.com/attachments/1125963111489351781/1397406992523333764/IMG_20240208_105056.jpg?ex=68819c2d&is=68804aad&hm=0a4d4b5326c7b5487d6f7bae5069b2cf55e1eaeaf1efdd5727950da875bae676&" alt="Amor">
 
     <script>
         const botaoNao = document.getElementById('nao');
+        const imagemAmor = document.getElementById('imagemAmor');
+        const audioAmor = document.getElementById('audioAmor');
 
         function moverBotao() {
             const larguraJanela = window.innerWidth - botaoNao.offsetWidth;
@@ -40,6 +59,18 @@
 
             botaoNao.style.left = novaPosicaoX + 'px';
             botaoNao.style.top = novaPosicaoY + 'px';
+        }
+
+        function mostrarAmor() {
+            // Esconde botões e pergunta
+            document.querySelector('h1').style.display = 'none';
+            document.querySelectorAll('button').forEach(btn => btn.style.display = 'none');
+
+            // Mostra imagem
+            imagemAmor.style.display = 'block';
+
+            // Toca música
+            audioAmor.play();
         }
 
         // Evento para computador (mouse)
