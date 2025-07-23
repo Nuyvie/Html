@@ -21,30 +21,15 @@
             position: absolute;
             transition: left 0.2s, top 0.2s;
         }
-
-        #imagemAmor {
-            display: none;
-            margin-top: 30px;
-            max-width: 80%;
-        }
     </style>
 </head>
 <body>
     <h1>Você quer namorar com o gordinho?</h1>
-
-    <button onclick="mostrarAmor()">Sim</button>
+    <button onclick="alert('Eu te amo ❤️')">Sim</button>
     <button id="nao">Não</button>
-
-    <div>
-        <img id="imagemAmor" src="https://i.imgur.com/CUjZ2UJ.png" alt="Amor">
-    </div>
-
-    <audio id="audioAmor" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
 
     <script>
         const botaoNao = document.getElementById('nao');
-        const imagemAmor = document.getElementById('imagemAmor');
-        const audioAmor = document.getElementById('audioAmor');
 
         function moverBotao() {
             const larguraJanela = window.innerWidth - botaoNao.offsetWidth;
@@ -55,12 +40,6 @@
 
             botaoNao.style.left = novaPosicaoX + 'px';
             botaoNao.style.top = novaPosicaoY + 'px';
-        }
-
-        function mostrarAmor() {
-            alert('Eu te amo ❤️');
-            imagemAmor.style.display = 'block';
-            audioAmor.play();
         }
 
         // Evento para computador (mouse)
@@ -74,4 +53,3 @@
     </script>
 </body>
 </html>
-
