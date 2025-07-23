@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Pergunta Importante</title>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 100px;
+            font-family: Arial, sans-serif;
+            overflow: hidden; /* evita barra de rolagem ao botão fugir */
+        }
+
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 20px;
+        }
+
+        #nao {
+            position: absolute;
+            transition: left 0.2s, top 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <h1>Você quer namorar com o gordinho?</h1>
+    <button onclick="alert('Eu te amo ❤️')">Sim</button>
+    <button id="nao">Não</button>
+
+    <script>
+        const botaoNao = document.getElementById('nao');
+
+        function moverBotao() {
+            const larguraJanela = window.innerWidth - botaoNao.offsetWidth;
+            const alturaJanela = window.innerHeight - botaoNao.offsetHeight;
+
+            const novaPosicaoX = Math.random() * larguraJanela;
+            const novaPosicaoY = Math.random() * alturaJanela;
+
+            botaoNao.style.left = novaPosicaoX + 'px';
+            botaoNao.style.top = novaPosicaoY + 'px';
+        }
+
+        // Evento para computador (mouse)
+        botaoNao.addEventListener('mouseover', moverBotao);
+
+        // Evento para celular (toque)
+        botaoNao.addEventListener('touchstart', function(e) {
+            e.preventDefault(); // evita clique imediato ao tocar
+            moverBotao();
+        });
+    </script>
+</body>
+</html>
